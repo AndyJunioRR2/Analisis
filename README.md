@@ -203,5 +203,140 @@ Si un algoritmo realiza aproximadamente 3n² + 2n + 1 operaciones, su orden es:
 > Simplifica el análisis y la comparación de algoritmos, enfocándose en el factor dominante que afecta la eficiencia a gran escala.
 ![Semana4](https://github.com/user-attachments/assets/c9f3493a-d2de-4b20-86fc-1889a54d45f4)
 
+# Semana 5 – Algoritmia Elemental
+
+## 2. Caracterización de los tiempos de ejecución
+
+Para analizar el comportamiento de los algoritmos se usan diferentes notaciones asintóticas que describen cómo crece el tiempo de ejecución con respecto al tamaño de entrada.
+
+---
+
+## 2.2. Notación Omega (Ω)
+
+- Representa un **límite inferior** para el crecimiento del tiempo de ejecución.
+- Indica que el algoritmo **al menos** tarda cierto tiempo para entradas grandes.
+- Formalmente, si un algoritmo tiene tiempo de ejecución T(n), decimos que T(n) = Ω(f(n)) si existe una constante c > 0 y n₀ tal que para todo n ≥ n₀, T(n) ≥ c·f(n).
+
+---
+
+## 2.3. Notación Theta (Θ)
+
+- Representa un **límite ajustado**: tanto límite superior como inferior.
+- Indica que el tiempo de ejecución crece exactamente en el orden de f(n).
+- Formalmente, T(n) = Θ(f(n)) si existen constantes c₁, c₂ > 0 y n₀ tales que para todo n ≥ n₀:  
+  c₁·f(n) ≤ T(n) ≤ c₂·f(n).
+
+---
+
+## 2.4. Notación asintótica condicional
+
+- Se usa cuando la notación asintótica depende de ciertas condiciones o casos específicos.
+- Ejemplo: análisis diferente para caso promedio o peor caso.
+- Permite un análisis más detallado del comportamiento del algoritmo bajo distintas situaciones.
+
+> **Resumen:**  
+> Las notaciones Ω, Θ y O permiten caracterizar con precisión el tiempo de ejecución de los algoritmos para diferentes escenarios y condiciones.
+![Semana5](https://github.com/user-attachments/assets/3795e94b-1281-42ec-8dd0-f5d1a6657f31)
+![Semana51](https://github.com/user-attachments/assets/3ccd9758-59d6-4145-9b89-f4f61567305e)
+![Semana52](https://github.com/user-attachments/assets/b0bc341a-ac5f-4062-b862-cfe71738a18d)
+# Semana 6 – Algoritmia Elemental
+
+## 3. Análisis de algoritmos
+
+El análisis de algoritmos consiste en estudiar el comportamiento de un algoritmo para determinar su eficiencia, principalmente en tiempo y espacio.
+
+- Permite predecir la escalabilidad del algoritmo.
+- Facilita la comparación entre diferentes algoritmos que resuelven el mismo problema.
+- Considera diferentes casos (mejor, promedio, peor).
+
+---
+
+## 3.1. Estructuras de control
+
+Las estructuras de control son bloques fundamentales para definir el flujo de ejecución en los algoritmos.
+
+### Tipos principales:
+
+- **Secuenciales**: instrucciones que se ejecutan una tras otra.
+- **Condicionales**: permiten ejecutar bloques de código basados en condiciones (`if`, `else`).
+- **Iterativas (bucles)**: repiten un bloque de instrucciones mientras una condición sea verdadera (`for`, `while`, `do-while`).
+
+> **Importancia en análisis**:  
+> Las estructuras de control determinan el número de operaciones elementales, lo cual impacta directamente en la eficiencia del algoritmo.
+# Semana 7 – Algoritmia Elemental
+
+## 3. Análisis de algoritmos
+
+El análisis de algoritmos busca determinar la eficiencia en distintas condiciones de entrada. Esta semana se exploran tres enfoques clave: el caso medio, el análisis amortizado y las recurrencias.
+
+---
+
+## 3.2. Análisis del caso medio
+
+El análisis del **caso medio** estima el comportamiento **promedio** de un algoritmo sobre todas las entradas posibles.
+
+- Supone una distribución de probabilidades sobre las entradas.
+- Es más representativo en aplicaciones prácticas que el mejor o peor caso.
+- Puede requerir conocimientos de probabilidad para su formulación.
+
+> **Ejemplo**:  
+> En búsqueda lineal sobre una lista sin ordenar, si cada posición es igualmente probable:  
+> - Caso medio ≈ (n + 1) / 2 comparaciones.
+
+---
+
+## 3.3. Análisis amortizado
+
+El análisis **amortizado** calcula el **costo promedio por operación** en una secuencia de operaciones.
+
+- Útil cuando algunas operaciones son costosas, pero ocurren raramente.
+- Asegura que, a largo plazo, el costo por operación se mantiene bajo.
+
+### Métodos comunes:
+
+- **Método agregado**:  
+  Se suma el costo total de todas las operaciones y se divide entre el número total.
+
+- **Método del contador (accounting)**:  
+  Se paga "de más" en operaciones baratas para cubrir el costo de las caras.
+
+- **Método del potencial**:  
+  Usa una función potencial que mide el "trabajo acumulado" en la estructura.
+
+> **Ejemplo clásico**:  
+> Inserciones en un arreglo dinámico que se duplica cuando se llena.  
+> - Algunas inserciones son O(n), pero la mayoría son O(1).  
+> - Costo amortizado por inserción: **O(1)**.
+
+---
+
+## 3.4. Recurrencias
+
+Una **recurrencia** es una fórmula que expresa el tiempo de ejecución de un algoritmo en función del tamaño de subproblemas más pequeños.
+
+- Común en algoritmos **recursivos**.
+- Permite analizar algoritmos de tipo "divide y vencerás".
+
+### Ejemplo típico:
+
+T(n) = 2T(n/2) + n
+
+Este caso representa:
+- División del problema en 2 subproblemas de tamaño `n/2`.
+- Un trabajo adicional de orden `n` en cada nivel de la recursión.
+
+### Métodos para resolver recurrencias:
+
+- **Sustitución**: Adivinar la solución y probarla por inducción.
+- **Árbol de recurrencia**: Visualizar los niveles de la recursión y sumar costos.
+- **Teorema maestro**: Método directo para ciertos tipos de recurrencias.
+
+> **Ejemplo de Teorema Maestro aplicado**:  
+> Para T(n) = 2T(n/2) + n, el resultado es T(n) = Θ(n log n)
+
+---
+![Semana7](https://github.com/user-attachments/assets/203513c7-dd8b-43e7-b342-f668c6a2b8df)
+
+
 
 
