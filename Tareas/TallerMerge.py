@@ -37,8 +37,9 @@ def merge(A, p, q, r):
 A = [2, 5, 8, 1, 3, 7]
 merge(A, 0, 2, 5)
 print("Arreglo final:", A)
-#
-🧠 Descripción del desarrollo
+
+
+# Descripción del desarrollo
 Entrada: Un arreglo A y tres índices p, q, r que definen dos subarreglos:
 
 A[p : q] (subarreglo izquierdo)
@@ -54,8 +55,7 @@ Se crean dos arreglos temporales L y R con los valores de cada mitad.
 Se recorren ambos arreglos y se copian los elementos en orden al arreglo original A.
 
 Si sobran elementos en L o R, se copian directamente.
-
-⏱️ Eficiencia del algoritmo
+ -Eficiencia del algoritmo
 Tiempo: 
 𝑂
 (
